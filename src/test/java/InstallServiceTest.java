@@ -8,7 +8,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import service.ICommonService;
 import service.IInstallService;
 
 /**
@@ -25,15 +24,17 @@ public class InstallServiceTest {
     @Autowired
     IInstallService service;
 
-    @Autowired
-    ICommonService commonService;
-
     @Before
-    @After
-    public void beforeAndAfter()
+    public void before()
     {
-        commonService.dropAll();
+        service.installGoalTable();
     }
+    @After
+    public void after()
+    {
+        service.dropAll();
+    }
+
 
     @Test
     public void testInstallGoalTable()

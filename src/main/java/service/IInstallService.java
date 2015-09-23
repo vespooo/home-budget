@@ -15,4 +15,6 @@ public interface IInstallService {
     void installPartitionTable();
 
     void installPartitionFactTable();
+
+    void dropAll();
 }

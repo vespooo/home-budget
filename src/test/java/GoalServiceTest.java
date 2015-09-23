@@ -1,6 +1,5 @@
 import configurations.TestConfig;
 import junit.framework.TestCase;
-import service.ICommonService;
 import data.Goal;
 import org.junit.After;
 import org.junit.Before;
@@ -30,22 +29,21 @@ public class GoalServiceTest {
     @Autowired
     IInstallService installService;
 
-
-    @Autowired
-    ICommonService commonService;
-
     @Before
-    //@After
-    public void beforeAndAfter()
+    public void before()
     {
-        commonService.dropAll();
+        installService.installGoalTable();
+    }
+    @After
+    public void after()
+    {
+        installService.dropAll();
     }
 
     @Test
     @Rollback
     public void testGoalNotFound()
     {
-        installService.installGoalTable();
         Goal goal = service.find("fff");
         TestCase.assertTrue(goal == null);
     }

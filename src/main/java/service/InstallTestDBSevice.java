@@ -40,4 +40,9 @@ public class InstallTestDBSevice implements IInstallService {
     public void installPartitionFactTable() {
         dao.installPartitionFactTable();
     }
+
+    @Override
+    public void dropAll() {
+        dao.dropAll();
+    }
 }

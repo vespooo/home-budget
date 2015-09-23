@@ -17,4 +17,6 @@ public interface IInstallDao {
     void installPartitionTable();
 
     void installPartitionFactTable();
+
+    void dropAll();
 }

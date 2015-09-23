@@ -2,8 +2,10 @@ package dao;
 
 import data.Goal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -13,9 +15,11 @@ import java.util.List;
  */
 public class GoalDao implements IGoalDao{
 
-    @Autowired
-    private IJdbcWrap jdbc;
+    private JdbcTemplate jdbc;
 
+    public GoalDao(DataSource dataSource) {
+        jdbc = new JdbcTemplate(dataSource);
+    }
     @Override
     public List<Goal> findGoal(String goal) {
         return jdbc.query("select id, name, repeat,one_date, start_date, end_date, summ from GOAL where name like '" + goal +"'", new GoalMapper());

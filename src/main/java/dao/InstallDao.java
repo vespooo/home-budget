@@ -10,9 +10,12 @@ import javax.sql.DataSource;
  */
 public class InstallDao implements IInstallDao{
 
-    @Autowired
-    private IJdbcWrap jdbc;
+    private JdbcTemplate jdbc;
 
+    public InstallDao(DataSource source) {
+
+        jdbc = new JdbcTemplate(source);
+    }
 
     @Override
     public void installGoalTable() {
@@ -47,4 +50,10 @@ public class InstallDao implements IInstallDao{
         jdbc.execute("create table PARTITION_FACT(plan_id int, plan_fact_id int, money_source_id int, goal_id int, summ int )");
 
     }
+
+    @Override
+    public void dropAll() {
+        jdbc.execute("DROP TABLE GOAL, MONEY_SOURCE, MONEY_SOURCE_FACT, PLANS, PARTITION, PARTITION_FACT IF EXISTS");
+    }
+
 }

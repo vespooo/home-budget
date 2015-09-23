@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import service.*;
 
@@ -18,13 +19,14 @@ import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan
+@EnableJpaRepositories
 @Profile("development")
 public class TestConfig {
 
     @Bean
     public IGoalDao goalDao()
     {
-        return new GoalDao();
+        return new GoalDao(dataSource());
     }
 
     @Bean
@@ -42,28 +44,16 @@ public class TestConfig {
     @Bean
     public IInstallDao installDao()
     {
-       return new InstallDao();
+       return new InstallDao(dataSource());
     }
 
 
     @Bean
-    public ICommonService globalService()
+    public IMoneySourceService moneySourceService()
     {
-        return new CommonSevice();
+        return new MoneySourceService();
     }
 
-    @Bean
-    public ICommonDao globalDao()
-    {
-        return new CommonDao();
-    }
-
-
-    @Bean
-    public IJdbcWrap jdbcWrap()
-    {
-        return new JdbcWrap(dataSource());
-    }
 
     @Bean
     public DataSource dataSource() {

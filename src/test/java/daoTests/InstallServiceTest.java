@@ -1,3 +1,5 @@
+package daoTests;
+
 import configurations.TestConfig;
 import org.junit.After;
 import org.junit.Before;
@@ -24,17 +26,18 @@ public class InstallServiceTest {
     @Autowired
     IInstallService service;
 
-    @Before
-    public void before()
-    {
-        service.installGoalTable();
-    }
-    @After
+   @Before
     public void after()
     {
         service.dropAll();
     }
 
+
+    @Test
+    public void testDropAll()
+    {
+        service.dropAll();
+    }
 
     @Test
     public void testInstallGoalTable()

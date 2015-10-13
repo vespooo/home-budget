@@ -1,6 +1,6 @@
 package service;
 
-import data.Goal;
+import dao.data.Goal;
 
 /**
  * Created by tvalova on 16.09.2015.

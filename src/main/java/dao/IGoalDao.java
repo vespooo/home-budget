@@ -1,6 +1,6 @@
 package dao;
 
-import data.Goal;
+import dao.data.Goal;
 
 import java.util.List;
 

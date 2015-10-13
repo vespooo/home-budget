@@ -1,6 +1,8 @@
+package daoTests;
+
 import configurations.TestConfig;
 import junit.framework.TestCase;
-import data.Goal;
+import dao.data.Goal;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,9 +34,10 @@ public class GoalServiceTest {
     @Before
     public void before()
     {
+        installService.dropAll();
         installService.installGoalTable();
     }
-    @After
+    //@After
     public void after()
     {
         installService.dropAll();
@@ -49,10 +52,9 @@ public class GoalServiceTest {
     }
 
     @Test
-   // @Rollback
+    @Rollback
     public void testGoalFound()
     {
-        installService.installGoalTable();
         String goalName = "fff";
         service.save(createGoal(goalName));
 //        Goal goal = service.find(goalName);

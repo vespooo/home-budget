@@ -1,7 +1,6 @@
 package dao;
 
-import data.Goal;
-import org.springframework.beans.factory.annotation.Autowired;
+import dao.data.Goal;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 

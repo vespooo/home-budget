@@ -1,7 +1,7 @@
 package service;
 
 import dao.IMoneySourceRepository;
-import data.MoneyoneySource;
+import dao.data.MoneySource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -13,12 +13,12 @@ public class MoneySourceService implements IMoneySourceService {
     private IMoneySourceRepository repo;
 
     @Override
-    public void findMoneySource(MoneyoneySource moneyoneySource) {
+    public void findMoneySource(MoneySource moneySource) {
         //repo.findByName(moneyoneySource)
     }
 
     @Override
-    public void save(MoneyoneySource moneyoneySource) {
-        repo.save(moneyoneySource);
+    public void save(MoneySource moneySource) {
+        repo.save(moneySource);
     }
 }

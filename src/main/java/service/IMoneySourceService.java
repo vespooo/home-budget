@@ -1,11 +1,11 @@
 package service;
 
-import data.MoneyoneySource;
+import dao.data.MoneySource;
 
 /**
  * Created by tvalova on 22.09.2015.
  */
 public interface IMoneySourceService {
-    void findMoneySource(MoneyoneySource moneyoneySource);
-    void save(MoneyoneySource moneyoneySource);
+    void findMoneySource(MoneySource moneySource);
+    void save(MoneySource moneySource);
 }

@@ -1,7 +1,7 @@
 package service;
 
 import dao.IGoalDao;
-import data.Goal;
+import dao.data.Goal;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

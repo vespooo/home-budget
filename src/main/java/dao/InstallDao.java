@@ -50,7 +50,7 @@ public class InstallDao implements IInstallDao{
         jdbc.execute("create table PARTITION_FACT(plan_id int, plan_fact_id int, money_source_id int, goal_id int, summ int )");
 
     }
-
+//test
     @Override
     public void dropAll() {
         jdbc.execute("DROP TABLE GOAL, MONEY_SOURCE, MONEY_SOURCE_FACT, PLANS, PARTITION, PARTITION_FACT IF EXISTS");
